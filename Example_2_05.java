@@ -3,45 +3,16 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * Java library class Random
+ * Anonymous String Object
  */
-import java.util.*;
-
 public class Example_2_05{
 
-  public static void main(String [] args){
+  public static void main(String[] args){
 
-    /*
-     * No seed used
-     */
-    Random rand = new Random();
+    char charString[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
-    int largest = 0, smallest = 100;
-    int randNumber = 0;
-
-    for(int i = 0; i < 100000; ++i){
-
-      /*
-       * Random 0 - 99
-       */
-      //randNumber = (int)rand.nextInt(100);
-
-      /*
-       * Random 1 - 100
-       */
-      randNumber = (int)rand.nextInt(100);
-
-      if(randNumber > largest){
-      
-        largest = randNumber;
-      }
-      if(randNumber < smallest){
-      
-        smallest = randNumber;
-      }
-    }
-
-    System.out.println("Largest = " + largest);
-    System.out.println("Smallest = " + smallest);
+    System.out.println(new String("My First String"));
+    System.out.println(new String(charString));
+    System.out.println(new String(charString, 2, 3));
   }
 }
