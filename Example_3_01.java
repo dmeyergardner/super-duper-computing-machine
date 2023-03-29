@@ -3,47 +3,33 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * static variables
+ * StringBuilder Constructors
  */
 public class Example_3_01{
 
   public static void main(String [] args){
 
-    DataClass_01 data_01 = new DataClass_01(2, 4, 6);
+    String s_01 = new String("New String");
 
-    data_01.printData();
-    System.out.println(); 
+    // No parameter
+    StringBuilder string01 = new StringBuilder();
+    // Specified Capacity
+    StringBuilder string02 = new StringBuilder(8);
+    // String - Literal
+    StringBuilder string03 = new StringBuilder("New String Builder");
+    // String - Instance
+    StringBuilder string04 = new StringBuilder(s_01);
 
-    DataClass_01 data_02 = new DataClass_01(5, 6, 7);
-    data_01.printData();
-    data_02.printData();
-    System.out.println(); 
+    System.out.println(string01.length());
+    System.out.println(string02.length());
+    System.out.println(string03.length());
+    System.out.println(string04.length());
 
-    DataClass_01 data_03 = new DataClass_01(22, 33, 44);
-    data_01.printData();
-    data_02.printData();
-    data_03.printData();
-    System.out.println(); 
-  }
-}
+    System.out.println();
 
-class DataClass_01{
-
-  static int value_01;
-  int value_02;
-  int value_03;
-
-  DataClass_01(int param_01, int param_02, int param_03){
-
-    value_01 = param_01;
-    value_02 = param_02;
-    value_03 = param_03;
-  }
-
-  public void printData(){
-
-    System.out.println("static value_01 = " + value_01); 
-    System.out.println("value_02 = " + value_02);
-    System.out.println("value_03 = " + value_03);
+    System.out.println(string01.capacity());
+    System.out.println(string02.capacity());
+    System.out.println(string03.capacity());
+    System.out.println(string04.capacity());
   }
 }

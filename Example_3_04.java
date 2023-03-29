@@ -3,36 +3,40 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * static and non static methods
+ * StringBuilder delete(int, String)
  */
 public class Example_3_04{
 
-  public static void main(String args []){
+  public static void main(String [] args){
 
-    /*
-     * Error
-     */
-    //MethodHolder.nonStaticMethod();
+    StringBuilder stringB01 = new StringBuilder("abcdefghijklmnopqrstuvwxyz");
 
-    MethodHolder.staticMethod();
+    System.out.println(stringB01.length());
+    System.out.println(stringB01);
 
-    MethodHolder methodHolder = new MethodHolder();
+    stringB01.delete(0, 1);
+    System.out.println();
+    // or 
 
-    methodHolder.nonStaticMethod();
+    System.out.println(stringB01.length());
+    System.out.println(stringB01);
 
-    methodHolder.staticMethod();
-  }
-}
+    stringB01.deleteCharAt(0);
+    System.out.println();
 
-class MethodHolder{
+    System.out.println(stringB01.length());
+    System.out.println(stringB01);
 
-  public void nonStaticMethod(){
+    stringB01.delete(0, 3);
+    System.out.println();
 
-    System.out.println("nonStaticMethod()");
-  }
+    System.out.println(stringB01.length());
+    System.out.println(stringB01);
 
-  public static void staticMethod(){
+    stringB01.delete(0, 5);
+    System.out.println();
 
-    System.out.println("staticMethod()");
+    System.out.println(stringB01.length());
+    System.out.println(stringB01);
   }
 }
