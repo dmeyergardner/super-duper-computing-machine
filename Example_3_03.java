@@ -2,34 +2,51 @@
  *
  * Professor Darrell Payne
  * Bellevue University
- * 
- * this reference
+ *
+ * static final variables
  */
 public class Example_3_03{
 
   public static void main(String [] args){
 
-    ThisClass thisClass = new ThisClass();
+    DataClass_03 data_01 = new DataClass_03(2, 4, 6);
 
-    thisClass.classScopeVar = 3;
+    data_01.printData();
+    System.out.println(); 
 
-    // Not valid
-    // this.classScopeVar = 3;
+    DataClass_03 data_02 = new DataClass_03(5, 6, 7);
+    data_01.printData();
+    data_02.printData();
+    System.out.println(); 
+
+    DataClass_03 data_03 = new DataClass_03(22, 33, 44);
+    data_01.printData();
+    data_02.printData();
+    data_03.printData();
+    System.out.println(); 
   }
 }
 
-class ThisClass{
+class DataClass_03{
 
-  int classScopeVar = 9;
+  final static int value_01 = 9;
+  int value_02;
+  int value_03;
 
-  public void thisClass_01(){
+  DataClass_03(int param_01, int param_02, int param_03){
 
-    int methodScope_01 = 9;
+    /*
+     * Syntax error
+     */
+    // value_01 = param_01;
+    value_02 = param_02;
+    value_03 = param_03;
+  }
 
-    // valid
-    this.classScopeVar = 9;
+  public void printData(){
 
-    // Not valid
-    // this.methodScope_01 = 9;
+    System.out.println("final static value_01 = " + value_01); 
+    System.out.println("value_02 = " + value_02);
+    System.out.println("value_03 = " + value_03);
   }
 }
