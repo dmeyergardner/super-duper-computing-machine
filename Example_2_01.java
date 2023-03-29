@@ -2,40 +2,39 @@
  *
  * Professor Darrell Payne
  * Bellevue University
- * 
+ *
+ * Using reference variables
  */
 public class Example_2_01{
 
   public static void main(String [] args){
 
-    Example_2_01 e2_01 = new Example_2_01();
+    MyExampleClass_01 reference_01 = new MyExampleClass_01();
+    MyExampleClass_02 reference_02 = new MyExampleClass_02();
 
-    DataClass_01 data_01 = new DataClass_01();
-    DataClass_01 data_02 = new DataClass_01();
-
-    e2_01.printDataClass(data_01);
-    e2_01.printDataClass(data_02);
-  }
-
-  public void printDataClass(DataClass_01 data){
-
-    System.out.println("DataClass Output");
-    System.out.println("Value_01 = " + data.value_01);
-    System.out.println("Value_02 = " + data.value_02);
-    System.out.println("DataClass Output");
+    System.out.println();
+    System.out.println("reference_01.value = " + reference_01.value);
+    System.out.println("reference_02.value = " + reference_02.value);
+    System.out.println();
   }
 }
 
-class DataClass_01{
+class MyExampleClass_01{
 
-  int value_01;
-  int value_02;
+  int value = 9;
 
-  DataClass_01(){}
+  public MyExampleClass_01(){
 
-  DataClass_01(int param_01, int param_02){
+    System.out.println("MyExampleClass_01 - Value = " + value);
+  }
+}
 
-    value_01 = param_01;
-    value_02 = param_02;
+class MyExampleClass_02{
+
+  int value = 4;
+
+  public MyExampleClass_02(){
+
+    System.out.println("MyExampleClass_02 - Value = " + value);
   }
 }

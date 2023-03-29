@@ -2,58 +2,48 @@
  *
  * Professor Darrell Payne
  * Bellevue University
- * 
+ *
+ * Assign initial values
  */
 public class Example_2_04{
 
   public static void main(String [] args){
 
-    Example_2_04 e2_04 = new Example_2_04();
+    MyExampleClass_06 reference_06a = new MyExampleClass_06();
+    MyExampleClass_06 reference_06b = new MyExampleClass_06("Test", 5, 33.44, true);
 
-    DataClass_04 data_04[] = new DataClass_04[5];
+    System.out.println();
+    System.out.println(reference_06a);
+    System.out.println();
 
-    for(int i = 0; i < data_04.length; ++i){
-   
-      data_04[i] = new DataClass_04(i * 2, i * 3);
-    }
-
-    for(int i = 0; i < data_04.length; ++i){
-   
-      e2_04.printDataClass(data_04[i]);
-    }   
-  }
-
-  public void changeDataClass(DataClass_04 data){
-
-    data.value_01 = 5;
-    data.value_02 = 9;
-  }
-
-  public void changeDataClass(DataClass_04 data, int param_02, int param_03){
-
-    data.value_01 = param_02;
-    data.value_02 = param_03;
-  }
-
-  public void printDataClass(DataClass_04 data){
-
-    System.out.println("DataClass Output");
-    System.out.println("Value_01 = " + data.value_01);
-    System.out.println("Value_02 = " + data.value_02);
-    System.out.println("DataClass Output");
+    System.out.println();
+    System.out.println(reference_06b);
+    System.out.println();
   }
 }
 
-class DataClass_04{
+class MyExampleClass_06{
 
-  int value_01;
-  int value_02;
+  private String myString = new String("The Wall");
+  private int myInt = 8;
+  private double myDouble = 9.241;
+  private boolean myBoolean = true;
 
-  DataClass_04(){}
+  public MyExampleClass_06(){}
 
-  DataClass_04(int param_01, int param_02){
+  public MyExampleClass_06(String s, int i, double d, boolean b){
 
-    value_01 = param_01;
-    value_02 = param_02;
+    myString = s;
+    myInt = i;
+    myDouble = d;
+    myBoolean = b;
+  }
+
+  public String toString(){
+
+    return "myString = " + myString + "\n" +
+           "myInt = " + myInt + "\n" +
+           "myDouble = " + myDouble + "\n" +
+           "myBoolean = " + myBoolean;
   }
 }
