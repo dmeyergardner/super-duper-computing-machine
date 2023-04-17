@@ -3,27 +3,35 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * Cat_02 is-a Animal_02 - True
- * Dog_02 is-a Animal_02 - True
- * Snake_02 is-a Animal_02 - True
- *
- * Animal_02 is-a Cat_02 - false
- * Animal_02 is-a Dog_02 - false
- * Animal_02 is-a Snake_02 - false
- *
- * public class Example_1_02 extends Object{
+ * Abstract Class
  */
 public class Example_1_02{
 
   public static void main(String [] args){
 
+    // Error
+    // Animal_21 a1 = new Animal_21();
+
+    Cat_21 cat = new Cat_21();
+    cat.speak();
   }
 }
 
-class Animal_02{}
+// This is abstract
+abstract class Animal_21{
 
-class Cat_02 extends Animal_02{}
+  // This is not abstract
+  public void speak(){
 
-class Dog_02 extends Animal_02{}
+  }
+}
 
-class Snake_02 extends Animal_02{}
+class Cat_21 extends Animal_21{
+
+  @Override
+  public void speak(){
+
+    System.out.println("I am a cat");
+    System.out.println("Meow");
+  }
+}

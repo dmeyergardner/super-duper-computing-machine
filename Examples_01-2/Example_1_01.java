@@ -3,29 +3,31 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * Object is the base class
- * Example_1_01 is the derived class
- *
- * Animal_01 is the base class
- * or
- * Animal_01 is a superclass
- * or
- * Animal_01 is a parent class
- *
- * Cat_01 is the derived class
- * or
- * Cat_01 is a subclass
- * or
- * Cat_01 is a child class
+ * Abstract Method
  */
-// public class Example_10_01{
-public class Example_1_01 extends Object{
+public class Example_1_01{
 
   public static void main(String [] args){
 
+    // Error
+    // Animal_21 a1 = new Animal_21();
+
+    Cat_21 cat = new Cat_21();
+    cat.speak();
   }
 }
 
-class Animal_01 extends Object{}
+abstract class Animal_21{
 
-class Cat_01 extends Animal_01{}
+  public abstract void speak();
+}
+
+class Cat_21 extends Animal_21{
+
+  @Override
+  public void speak(){
+
+    System.out.println("I am a cat");
+    System.out.println("Meow");
+  }
+}

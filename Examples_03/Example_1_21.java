@@ -3,59 +3,97 @@
  * Professor Darrell Payne
  * Bellevue University
  *
- * Demonstrates the printStackTrace method of class Exception
- * Throws MyEighthException using the String parameter constructor
- * Extended Exception Class Calls the Super(String) Constructor
+ * Comparable and Cloneable
+ *
+ * Must override Object.clone method
+ * public Object clone() throws CloneNotSupportedException
+ * 
+ * Must change visibility from protected to public
+ * 
+ * Negative (-#) - Less than
+ * Equal (0)
+ * Positive (+#) - Greater than
  */
-public class Example_1_21{
+public class Example_1_21 implements Cloneable, Comparable <Example_1_21>{
+  
+  private String name;
+  
+  // Constructor
+  public Example_1_21(String name) {
+    this.name = name;
+  }
+   
+  // Getter
+  public String getName() {
+    return name;
+  }
 
-  public static void main(String[] args){
+  public void setName(String s) {
+    name = s;
+  }
 
-    Example_1_21 example = new Example_1_21();
+  // Override Comparable.compareTo
+  @Override
+  public int compareTo(Example_1_21 o){
 
-    try{
-
-      example.aMethod1();
+    return this.name.compareTo(o.getName());
+  }  
+  
+  @Override
+  public Object clone() throws CloneNotSupportedException{  
+        return (Example_1_21)super.clone();  
     }
-    catch(MyEighthException mee){
+   
+  public static void main(String[] args) {
 
-      mee.printStackTrace();
-    }
-  }
 
-  /*
-   * Does not handle the exception thrown by aMethod2
-   *  aMethod1 throws the exception thrown by aMethod2 back to
-   *    the calling method
-   */
-  public void aMethod1() throws MyEighthException{
+    Example_1_21 emp7 = new Example_1_21("Ted");
+    Example_1_21 emp8;
 
-    aMethod2();
-  }
+      try {
 
-  public void aMethod2() throws MyEighthException{
+        emp8 = (Example_1_21) emp7.clone();
+        System.out.println();
+        System.out.println(emp7.getName());
+        System.out.println(emp8.getName());
 
-    /*
-     * If our new Exception class had no default constructor
-     *    the following statement would not compile
-     *
-     * throw new MyException();
-     *
-     */
-    throw new MyEighthException("\n\n\tNote: *** aMethod2 Exception Thrown ***\n");
-  }
-}
+        System.out.println();
 
-class MyEighthException extends Exception{
+        emp7.setName("George");
+        emp8.setName("Sue");
+        
+        System.out.println(emp7.getName());
+        System.out.println(emp8.getName());
 
-/*
-  public MyEighthException(){
+        System.out.println();
 
-    super();
-  }
-*/
-  public MyEighthException(String s){
+      }catch (CloneNotSupportedException e) {
 
-    super(s);
+        e.printStackTrace();
+      }
+
+System.out.println("------------------------------------");
+
+
+    Example_1_21 emp1 = new Example_1_21("Larry");
+    Example_1_21 emp2 = new Example_1_21("Ted");
+    Example_1_21 emp3 = new Example_1_21("Adam");
+
+    Example_1_21 emp10 = new Example_1_21("Frank");
+
+    System.out.println();
+
+    System.out.println("C".compareTo("C")); // Equals
+    System.out.println("C".compareTo("A")); // 2
+    System.out.println("C".compareTo("F")); // -3
+
+    System.out.println();
+
+    System.out.println(emp10.compareTo(emp1)); // -6
+    System.out.println(emp10.compareTo(emp2)); // -14
+    System.out.println(emp10.compareTo(emp3)); // 5
+    System.out.println(emp10.compareTo(emp10)); // 0
+
+    System.out.println();
   }
 }
